@@ -16,12 +16,14 @@ First time downloading the app will display a "Steamcmd not installed" dialog, c
 Downloaded mods should be under ~/.local/share/Steam/steamapps/workshop/, if not check steamcmd.log
 
 To remove an element from the list double-click it
+
+**The app is gui, but for now it doesn`t have proper error handling, its recommened to check steamcmd.log file after downloading mods for possible errors**
 ## Building
 This app is writen in golang, uses gotk4 and cambalache for gui, and codeclysm/extract for extracting steamcmd.
 To build run:
 ```
-git clone https://github.com/Hydriam/LinuxWorkshopDownloader/
-cd LinuxWorkshopDownloader
-go build -o LinuxWorkshopDownloader
+git clone https://github.com/Hydriam/WorkshopFetcher/
+cd WorkshopFetcher
+go build -o WorkshopFetcher
 ```
 You need golang installed on your linux system.

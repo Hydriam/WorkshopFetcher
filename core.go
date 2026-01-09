@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"strconv"
 
 	libLWD "github.com/Hydriam/WorkshopFetcher/LibLWD"
@@ -114,10 +115,16 @@ func activate(app *gtk.Application) {
 					workshopIDs = append(workshopIDs, modListStrings.String(uint(i)))
 				}
 				//fmt.Println(workshopIDs)
-				go libLWD.DownloadFromSteamcmd(gameAppID,
+				//TODO: make so this dumb thing doesnt make the program "not responding" when downloading
+				libLWD.DownloadFromSteamcmd(gameAppID,
 					workshopIDs)
+				log := exec.Command("gnome-text-editor", "steamcmd.log")
+				err := log.Run()
+				if err != nil {
+					fmt.Println("Error opening log file:", err)
+				}
+				dialog.Destroy()
 			}
-			dialog.Destroy()
 		})
 	})
 	// set modListFactory as the factory for mod list

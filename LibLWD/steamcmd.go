@@ -96,6 +96,7 @@ func DownloadFromSteamcmd(appID string, workshopIDs []string) error {
 		logger.Println("Make sure that you have 32bit version of glibc installed on your system.")
 		return err
 	}
+	logger.Println("Please check above lines to know if everything went succesfully.")
 	logger.Println("The file should be downloaded.")
 	logger.Println("It should be under ~/.local/share/Steam/steamapps/workshop/")
 	return nil
